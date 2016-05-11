@@ -53,5 +53,8 @@ group :production do
 end
 
 
-# Twitter Bootstrap for Rails 3.x - 4 Asset Pipeline https://github.com/seyhunak/twitter-bootstrap-rails
+# Twitter Bootstrap for Rails 3.x - 4 Asset Pipeline 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
+gem 'simple_form'
