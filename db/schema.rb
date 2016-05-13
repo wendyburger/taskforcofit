@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512095702) do
+ActiveRecord::Schema.define(version: 20160512102208) do
 
-  create_table "metabolic_rates", force: :cascade do |t|
-    t.string   "gender"
-    t.integer  "height"
-    t.integer  "weight"
-    t.date     "birth"
-    t.integer  "bmr"
-    t.integer  "user_id"
+  create_table "foods", force: :cascade do |t|
+    t.string   "food_name"
+    t.float    "carbohydrate"
+    t.float    "protein"
+    t.float    "fat"
+    t.float    "gram"
+    t.float    "food_cal"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
