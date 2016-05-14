@@ -18,6 +18,9 @@ class DailyPlansController < ApplicationController
 
   def show
     @daily_plan = DailyPlan.find(params[:id])
+    date = @daily_plan.daily_date
+    @daily_exercises = Exercise.where(exercise_time: date)
+    @daily_meals = Meal.where(meal_date: date)
   end
 
   private

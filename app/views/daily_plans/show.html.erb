@@ -1,5 +1,21 @@
-
 <h1><%= @daily_plan.daily_date %>熱量紀錄</h1>
 <h3>建議卡路里為：<%= @daily_plan.basal_metabolic %> kcal</h3>
+
 <h3>今日進食卡路里為：</h3>
+<% if @daily_meals != nil %>
+  <% @daily_meals.each do |daily_meal| %>
+    <%= link_to daily_meal.meal_date, daily_meal%>
+    </br>
+  <% end %>
+<% end %>
+
+
 <h3>今日消耗卡路里為：</h3>
+<% if @daily_exercises != nil %>
+  <% @daily_exercises.each do |daily_exercise| %>
+    <%= link_to daily_exercise.exercise_time, daily_exercise %>
+    </br>
+  <% end %>
+<% end %>
+
+

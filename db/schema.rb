@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514125914) do
+ActiveRecord::Schema.define(version: 20160514145303) do
 
   create_table "daily_plans", force: :cascade do |t|
     t.float    "weight"
@@ -45,10 +45,11 @@ ActiveRecord::Schema.define(version: 20160514125914) do
   create_table "meals", force: :cascade do |t|
     t.integer  "food_id"
     t.float    "serve"
-    t.datetime "meal_time"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "meal_date"
+    t.time     "meal_time"
   end
 
   create_table "profiles", force: :cascade do |t|

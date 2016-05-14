@@ -1,4 +1,5 @@
 <h1>我的飲食記錄 <%= link_to '新增紀錄', new_meal_path, class: 'btn btn-primary' %></h1>
 <% @meals.each do |meal| %>
-  <%= link_to meal.meal_time, meal_path(meal) %>
+  <%= link_to meal.meal_date, meal_path(meal) %>
+  </br>
 <% end %>
