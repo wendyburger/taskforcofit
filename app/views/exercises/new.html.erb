@@ -1,0 +1,8 @@
+<h1>新增運動紀錄</h1>
+
+<%= simple_form_for @exercise do |f| %> 
+  <%= f.collection_select(:workout_id, Workout.all, :id, :item) %>
+  <%= f.input :exercise_time, label: 'Exercise day' %>
+  <%= f.input :period, placeholder: '運動時間(分鐘)' %>
+  <%= f.submit '新增', class: 'btn btn-primary' %>
+<% end %>

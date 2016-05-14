@@ -1,0 +1,6 @@
+<h1>我的運動記錄 <%= link_to '新增運動記錄', new_exercise_path, class: 'btn btn-primary' %></h1>
+
+<% @exercises.each do |exercise| %>
+  <%= link_to exercise.exercise_time, exercise_path(exercise) %>
+  </br>
+<% end %>

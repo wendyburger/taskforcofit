@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :daily_plans
   resources :meals
+  resources :exercises
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
