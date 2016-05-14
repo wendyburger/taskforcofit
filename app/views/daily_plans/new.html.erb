@@ -1,0 +1,8 @@
+<h1>新增今日計畫</h1>
+
+<%= simple_form_for @daily_plan do |f| %>
+  <%= f.input :daily_date, start_year: Date.today.year,
+                          end_year: Date.today.year - 1  %>
+  <%= f.input :weight, placeholder: '體重(kg)' %>
+  <%= f.submit '新增', class: 'btn btn-primary' %>
+<% end %>
