@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :daily_plans
+  has_many :meals
 end
