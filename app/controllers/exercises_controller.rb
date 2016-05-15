@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  before_action :find_daily_plan
   def index
     @exercises = Exercise.all
   end
@@ -8,10 +9,10 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    @exercise = current_user.exercises.build(exercise_params)
+    @exercise = @daily_plan.exercises.build(exercise_params)
 
     if @exercise.save
-      redirect_to @exercise
+      redirect_to @daily_plan
       flash[:notice] = '您已經成功新增運動紀錄'
     end
   end
@@ -21,6 +22,10 @@ class ExercisesController < ApplicationController
   end
 
   private 
+
+  def find_daily_plan
+    @daily_plan = DailyPlan.find(params[:daily_plan_id])
+  end
 
   def exercise_params
     params.require(:exercise).permit(:workout_id, :period, :exercise_time, :user_id)

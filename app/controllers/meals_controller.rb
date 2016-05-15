@@ -1,17 +1,19 @@
 class MealsController < ApplicationController
+  before_action :find_daily_plan
+
   def index
     @meals = Meal.all
   end
-  
+
   def new
     @meal = Meal.new
   end
 
   def create
-    @meal = current_user.meals.build(meal_params)
+    @meal = @daily_plan.meals.build(meal_params)
 
     if @meal.save
-      redirect_to @meal
+      redirect_to @daily_plan
     end
   end
 
@@ -20,6 +22,10 @@ class MealsController < ApplicationController
   end
 
   private
+
+  def find_daily_plan
+    @daily_plan = DailyPlan.find(params[:daily_plan_id])
+  end
 
   def meal_params
     params.require(:meal).permit(:food_id, :serve, :meal_date ,:meal_time, :user_id)

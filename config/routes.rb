@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :profiles
-  resources :daily_plans
-  resources :meals
-  resources :exercises
+  resources :daily_plans do
+    resources :meals
+    resources :exercises
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

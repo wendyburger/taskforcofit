@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514145303) do
+ActiveRecord::Schema.define(version: 20160515071035) do
 
   create_table "daily_plans", force: :cascade do |t|
     t.float    "weight"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160514145303) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.float    "basal_metabolic"
+    t.float    "activity_rate"
+    t.integer  "suggest_metabolic_rate"
   end
 
   create_table "exercises", force: :cascade do |t|
@@ -29,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160514145303) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "daily_plan_id"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -40,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160514145303) do
     t.float    "food_cal"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "per_serve"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -50,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160514145303) do
     t.datetime "updated_at"
     t.date     "meal_date"
     t.time     "meal_time"
+    t.integer  "daily_plan_id"
   end
 
   create_table "profiles", force: :cascade do |t|

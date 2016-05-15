@@ -1,21 +1,19 @@
-<h1><%= @daily_plan.daily_date %>熱量紀錄</h1>
-<h3>建議卡路里為：<%= @daily_plan.basal_metabolic %> kcal</h3>
+<h1><%= @daily_plan.daily_date %>熱量紀錄 </h1>
+<h3>基礎代謝率為：<%= @daily_plan.basal_metabolic.to_i %> kcal</h3>
+<h3>建議卡路里為：<%= @daily_plan.suggest_metabolic_rate %> kcal</h3>
 
-<h3>今日進食卡路里為：</h3>
-<% if @daily_meals != nil %>
-  <% @daily_meals.each do |daily_meal| %>
-    <%= link_to daily_meal.meal_date, daily_meal%>
-    </br>
-  <% end %>
+<%= link_to '新增飲食記錄', new_daily_plan_meal_path(@daily_plan), class:'btn btn-primary' %>
+</br>
+<% @daily_plan.foods.each do |food| %>
+  <%= food.food_name %>
+  </br>
 <% end %>
 
-
-<h3>今日消耗卡路里為：</h3>
-<% if @daily_exercises != nil %>
-  <% @daily_exercises.each do |daily_exercise| %>
-    <%= link_to daily_exercise.exercise_time, daily_exercise %>
-    </br>
-  <% end %>
+<%= link_to '新增運動記錄', new_daily_plan_exercise_path(@daily_plan), class:'btn btn-primary' %>
+</br>
+<% @daily_plan.workouts.each do |workout| %>
+  <%= workout.item %>
+  </br>
 <% end %>
 
 

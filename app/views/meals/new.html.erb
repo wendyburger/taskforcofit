@@ -1,9 +1,7 @@
 <h1>新增飲食記錄</h1>
 
-<%= simple_form_for @meal do |f| %>
+<%= simple_form_for [@daily_plan, @meal] do |f| %>
   <%= f.collection_select(:food_id, Food.all, :id, :food_name) %>
   <%= f.input :serve, placeholder: '數量' %>
-  <%= f.input :meal_date %>
-  <%= f.input :meal_time %>
   <%= f.submit '新增', class: 'btn btn-primary' %>
 <% end %>

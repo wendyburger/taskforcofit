@@ -9,7 +9,7 @@ class DailyPlansController < ApplicationController
 
   def create
     @daily_plan = current_user.daily_plans.build(plan_params)
-    @daily_plan.cal_metabolic(current_user)
+    @daily_plan.cal_metabolic
 
     if @daily_plan.save 
       redirect_to @daily_plan
@@ -18,14 +18,13 @@ class DailyPlansController < ApplicationController
 
   def show
     @daily_plan = DailyPlan.find(params[:id])
-    date = @daily_plan.daily_date
-    @daily_exercises = Exercise.where(exercise_time: date)
-    @daily_meals = Meal.where(meal_date: date)
+    @daily_exercises = @daily_plan.workouts
+    @daily_meals = @daily_plan.foods
   end
 
   private
 
   def plan_params
-    params.require(:daily_plan).permit(:weight, :daily_date)
+    params.require(:daily_plan).permit(:weight, :daily_date, :activity_rate)
   end
 end
