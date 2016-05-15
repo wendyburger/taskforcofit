@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :profiles
+
   resources :daily_plans do
     resources :meals
     resources :exercises
   end
 
+  get 'users/:id/daily_plans' => 'daily_plans#index', as: :user_daily_plans
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

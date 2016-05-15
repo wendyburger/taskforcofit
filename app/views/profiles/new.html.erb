@@ -2,6 +2,7 @@
   <h1>新增MyProfile</h1>
 
   <%= simple_form_for @profile do |f| %>
+    <%= f.input :user_name, label: 'name', placeholder: '姓名' %>
     <%= f.input :gender, placeholder: '性別 (男,女)' %>
     <%= f.input :birth, start_year: Date.today.year - 80,
                               end_year: Date.today.year - 10 %>

@@ -1,6 +1,7 @@
 class DailyPlansController < ApplicationController
   def index
-    @daily_plans = DailyPlan.all
+    @user = User.find(params[:id])
+    @daily_plans = @user.daily_plans
   end
 
   def new
@@ -20,6 +21,8 @@ class DailyPlansController < ApplicationController
     @daily_plan = DailyPlan.find(params[:id])
     @daily_exercises = @daily_plan.workouts
     @daily_meals = @daily_plan.foods
+    @daily_meal_calorie = @daily_plan.cal_meal_calorie
+    @daily_exercise_calorie = @daily_plan.cal_exercise_calorie
   end
 
   private

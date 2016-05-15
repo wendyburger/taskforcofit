@@ -1,2 +1,6 @@
 <h1>This is home page</h1>
 <p>Calculate your daily calorie</p>
+
+<% @profiles.each do |profile| %>
+  <%= link_to profile.user_name, user_daily_plans_path(profile.user_id) %>
+<% end %>

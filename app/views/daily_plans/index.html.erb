@@ -1,5 +1,6 @@
-
-<h1>每日計畫表 <%= link_to '新增計畫', new_daily_plan_path, class: 'btn btn-primary' %></h1>
+<% if current_user && current_user == @user %>
+  <h1>每日計畫表 <%= link_to '新增計畫', new_daily_plan_path, class: 'btn btn-primary' %></h1>
+<% end %>
 
 <% @daily_plans.each do |daily_plan| %>
   <h3><%= link_to daily_plan.daily_date, daily_plan_path(daily_plan) %> 熱量紀錄 </h3>
