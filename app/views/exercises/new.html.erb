@@ -1,8 +1,8 @@
-<h1>新增運動紀錄</h1>
-
-
-<%= simple_form_for [@daily_plan, @exercise] do |f| %> 
-  <%= f.collection_select(:workout_id, Workout.all, :id, :item) %>
-  <%= f.input :period, placeholder: '運動時間(分鐘)' %>
-  <%= f.submit '新增', class: 'btn btn-primary' %>
-<% end %>
+<div class="col-md-4 col-md-offset-4">
+  <h1>新增運動紀錄</h1>
+  <%= simple_form_for [@daily_plan, @exercise] do |f| %> 
+    <%= f.collection_select(:workout_id, Workout.all, :id, :item) %>
+    <%= f.input :period, placeholder: '運動時間(分鐘)' %>
+    <%= f.submit '新增', class: 'btn btn-primary' %>
+  <% end %>
+</div>

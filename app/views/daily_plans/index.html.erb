@@ -1,12 +1,19 @@
-<% if current_user && current_user == @user %>
-  <% if @user.profile %>  
-    <h1>每日計畫表 <%= link_to '新增計畫', new_daily_plan_path, class: 'btn btn-primary' %>
-    <%= link_to 'My Profile', profile_path(@user.profile), class: 'btn btn-success' %></h1>
-  <% else %>
-    <h1>請先新增您的資料<%= link_to "Create Profile", new_profile_path, class: 'btn btn-success' %></h1>
+<div class='col-md-6 col-md-offset-3'>
+  <h1><%= @user.profile.user_name %> 的每日計畫</h1>
+  <% if current_user && current_user == @user %>
+    <% if @user.profile %>  
+      <h1>每日計畫表 <%= link_to '新增計畫', new_daily_plan_path, class: 'btn btn-primary' %>
+      <%= link_to 'My Profile', profile_path(@user.profile), class: 'btn btn-success' %></h1>
+    <% else %>
+      <h1>請先新增您的資料<%= link_to "Create Profile", new_profile_path, class: 'btn btn-success' %></h1>
+    <% end %>
   <% end %>
-<% end %>
+  
+  <hr>
 
-<% @daily_plans.each do |daily_plan| %>
-  <h3><%= link_to daily_plan.daily_date, daily_plan_path(daily_plan) %> 熱量紀錄 </h3>
-<% end %>
+  <% @daily_plans.each do |daily_plan| %>
+    <div class='well'>
+      <p><%= link_to daily_plan.daily_date, daily_plan_path(daily_plan) %> 熱量紀錄 </p>
+    </div>
+  <% end %>
+</div>

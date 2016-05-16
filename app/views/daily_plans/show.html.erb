@@ -1,26 +1,38 @@
-<h1><%= @daily_plan.daily_date %>熱量紀錄 </h1>
-<h3>基礎代謝率為：<%= @daily_plan.basal_metabolic.to_i %> kcal</h3>
-<h3>建議卡路里為：<%= @daily_plan.suggest_metabolic_rate %> kcal</h3>
+<div class='col-md-6 col-md-offset-3'>
+  <h1><%= @daily_plan.daily_date %>的熱量紀錄 </h1>
+  <h3>基礎代謝率為：<%= @daily_plan.basal_metabolic.to_i %> kcal</h3>
+  <h3>建議卡路里為：<%= @daily_plan.suggest_metabolic_rate %> kcal</h3>
+  
+  <hr>
 
-<% if current_user && current_user == @daily_plan.user %>
-  <%= link_to '新增飲食記錄', new_daily_plan_meal_path(@daily_plan), class:'btn btn-primary' %>
-  </br>
-<% end %>
-<h3>今日攝入卡路里為：<%= @daily_meal_calorie.to_i %></h3>
-<% @daily_plan.meals.each do |meal| %>
-  <%= meal.food.food_name %> X <%= meal.serve %>
-  </br>
-<% end %>
+<div>
+  <h3>今日攝入卡路里為：<%= @daily_meal_calorie.to_i %>
+    <% if current_user && current_user == @daily_plan.user %>
+      <%= link_to '新增飲食記錄', new_daily_plan_meal_path(@daily_plan), class:'btn btn-primary' %>
+    <% end %>
+  </h3>
+  <div class="well">
+  <% @daily_plan.meals.each do |meal| %>
+    <%= meal.food.food_name %> X <%= meal.serve %>
+    </br>
+  <% end %>
+  </div>
+</div>
 
-<% if current_user && current_user == @daily_plan.user %>
-  <%= link_to '新增運動記錄', new_daily_plan_exercise_path(@daily_plan), class:'btn btn-primary' %>
-  </br>
-<% end %>
 
-<h3>今日消耗卡路里為：<%= @daily_exercise_calorie.to_i %></h3>
-<% @daily_plan.exercises.each do |exercise| %>
-  <%= exercise.workout.item %> <%= exercise.period %>分鐘
-  </br>
-<% end %>
+<div>
+  <h3>今日消耗卡路里為：<%= @daily_exercise_calorie.to_i %>
+    <% if current_user && current_user == @daily_plan.user %>
+      <%= link_to '新增運動記錄', new_daily_plan_exercise_path(@daily_plan), class:'btn btn-success' %>
+    <% end %>
+  </h3>
+
+  <div class="well">
+  <% @daily_plan.exercises.each do |exercise| %>
+    <%= exercise.workout.item %> <%= exercise.period %>分鐘
+    </br>
+  <% end %>
+  </div>
+</div>
 
 

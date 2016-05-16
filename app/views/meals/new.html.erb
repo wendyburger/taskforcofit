@@ -1,7 +1,9 @@
-<h1>新增飲食記錄</h1>
+<div class="col-md-4 col-md-offset-4">
+  <h1>新增飲食記錄</h1>
 
-<%= simple_form_for [@daily_plan, @meal] do |f| %>
-  <%= f.collection_select(:food_id, Food.all, :id, :food_name) %>
-  <%= f.input :serve, placeholder: '數量' %>
-  <%= f.submit '新增', class: 'btn btn-primary' %>
-<% end %>
+  <%= simple_form_for [@daily_plan, @meal] do |f| %>
+    <%= f.collection_select(:food_id, Food.all, :id, :food_name) %>
+    <%= f.input :serve, placeholder: '數量' %>
+    <%= f.submit '新增', class: 'btn btn-primary' %>
+  <% end %>
+</div>
