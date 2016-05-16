@@ -23,13 +23,4 @@ Food.create(food_name: '優格', carbohydrate: 18.64, protein: 3.98, fat: 1.15, 
 Food.create(food_name: '白麵包', carbohydrate: 30.33, protein: 12.33, fat: 11.74, gram: 100, per_serve: 162, food_cal: 276)
 Food.create(food_name: '雞胸肉', carbohydrate: 0, protein: 29.55, fat: 7.72, gram: 100, per_serve: 79, food_cal: 195)
 
-wendy = User.create(email: 'wen1123wen@gmail.com', password: 'password')
-fred = User.create(email: 'fred@gmail.com', password: 'password')
-test = User.create(email: 'test@gmail.com', password: 'password')
-test2 = User.create(email: 'test2@gmail.com', password: 'password')
-
-Profile.create(gender: '女', birth: Date.parse('1988-11-23'), height: 160, user_id: 1)
-Profile.create(gender: '男', birth: Date.parse('1986-9-7'), height: 180, user_id: 2)
-Profile.create(gender: '男', birth: Date.parse('1984-5-30'), height: 175, user_id: 3)
-Profile.create(gender: '女', birth: Date.parse('1990-5-14'), height: 180, user_id: 4)
 
