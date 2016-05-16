@@ -1,6 +1,7 @@
 class DailyPlansController < ApplicationController
+  before_action :find_user, only: [:index, :show]
+
   def index
-    @user = User.find(params[:id])
     @daily_plans = @user.daily_plans
   end
 
@@ -29,5 +30,9 @@ class DailyPlansController < ApplicationController
 
   def plan_params
     params.require(:daily_plan).permit(:weight, :daily_date, :activity_rate)
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 end

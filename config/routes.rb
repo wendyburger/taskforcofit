@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
-  resources :profiles
+  resources :profiles, only: [:new, :create, :show]
 
-  resources :daily_plans do
-    resources :meals
-    resources :exercises
+  resources :daily_plans, only: :[:index, :new, :create, :show] do
+    resources :meals, only: [:index, :new, :create, :show]
+    resources :exercises, only: [:index, :new, :create, :show]
   end
 
   get 'users/:id/daily_plans' => 'daily_plans#index', as: :user_daily_plans
