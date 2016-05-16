@@ -1,5 +1,5 @@
 class DailyPlansController < ApplicationController
-  before_action :find_user, only: [:index, :show]
+  before_action :find_user, only: [:index]
 
   def index
     @daily_plans = @user.daily_plans
