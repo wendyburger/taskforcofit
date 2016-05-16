@@ -1,5 +1,5 @@
 class DailyPlansController < ApplicationController
-  before_action :find_user, only: [:index, :show]
+  before_action :find_user, only: [:index]
 
   def index
     @daily_plans = @user.daily_plans
@@ -15,6 +15,9 @@ class DailyPlansController < ApplicationController
 
     if @daily_plan.save 
       redirect_to @daily_plan
+      flash[:notice] = '你成功新增每日計畫'
+    else
+      render :new
     end
   end
 

@@ -14,6 +14,8 @@ class ExercisesController < ApplicationController
     if @exercise.save
       redirect_to @daily_plan
       flash[:notice] = '您已經成功新增運動紀錄'
+    else
+      render :new
     end
   end
 

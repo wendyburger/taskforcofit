@@ -2,7 +2,7 @@
 <h3>基礎代謝率為：<%= @daily_plan.basal_metabolic.to_i %> kcal</h3>
 <h3>建議卡路里為：<%= @daily_plan.suggest_metabolic_rate %> kcal</h3>
 
-<% if current_user && current_user == @user %>
+<% if current_user && current_user == @daily_plan.user %>
   <%= link_to '新增飲食記錄', new_daily_plan_meal_path(@daily_plan), class:'btn btn-primary' %>
   </br>
 <% end %>
@@ -12,7 +12,7 @@
   </br>
 <% end %>
 
-<% if current_user && current_user == @user %>
+<% if current_user && current_user == @daily_plan.user %>
   <%= link_to '新增運動記錄', new_daily_plan_exercise_path(@daily_plan), class:'btn btn-primary' %>
   </br>
 <% end %>

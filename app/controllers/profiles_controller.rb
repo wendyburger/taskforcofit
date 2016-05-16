@@ -9,6 +9,10 @@ class ProfilesController < ApplicationController
 
     if @profile.save
       redirect_to @profile
+      flash[:notice] = '您已經成功新增profile'
+    else
+      render :new
+      flash[:error] = '似乎出了什麼問題'
     end
   end
 

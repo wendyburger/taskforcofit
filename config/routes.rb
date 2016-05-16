@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:new, :create, :show]
 
-  resources :daily_plans, only: :[:index, :new, :create, :show] do
+  resources :daily_plans do
     resources :meals, only: [:index, :new, :create, :show]
     resources :exercises, only: [:index, :new, :create, :show]
   end

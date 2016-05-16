@@ -14,6 +14,8 @@ class MealsController < ApplicationController
 
     if @meal.save
       redirect_to @daily_plan
+    else
+      render :new
     end
   end
 
