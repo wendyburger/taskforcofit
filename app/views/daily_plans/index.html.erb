@@ -1,5 +1,5 @@
 <div class='col-md-6 col-md-offset-3'>
-  <h1><%= @user.profile.user_name %> 的每日計畫</h1>
+  <h1>每日計畫</h1>
   <% if current_user && current_user == @user %>
     <% if @user.profile %>  
       <h1>每日計畫表 <%= link_to '新增計畫', new_daily_plan_path, class: 'btn btn-primary' %>
