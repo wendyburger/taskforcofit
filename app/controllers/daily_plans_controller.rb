@@ -2,7 +2,7 @@ class DailyPlansController < ApplicationController
   before_action :find_user, only: [:index]
 
   def index
-    @daily_plans = @user.daily_plans
+    @daily_plans = @user.daily_plans.order('daily_date DESC')
   end
 
   def new
